@@ -1,0 +1,30 @@
+INSERT INTO beverages (id, name, description, price)
+VALUES ('123e4567-e89b-12d3-a456-426614174000', 'Café Americano', 'Café negro clásico preparado con agua caliente',
+        2.50),
+       ('987e6543-e21b-34d5-c678-426614174001', 'Cappuccino', 'Espresso con partes iguales de leche al vapor y espuma',
+        3.75),
+       ('a1b2c3d4-e5f6-7890-1234-56789abcdef0', 'Té Verde Matcha', 'Té verde japonés en polvo con leche', 4.20),
+       ('b2c3d4e5-f6a7-8901-2345-6789abcdef01', 'Agua Mineral', 'Agua mineral con gas natural (500ml)', 1.50),
+       ('c3d4e5f6-a7b8-9012-3456-789abcdef012', 'Jugo de Naranja', 'Jugo natural 100% recién exprimido', 3.00),
+       ('d4e5f6a7-b8c9-0123-4567-89abcdef0123', 'Refresco de Cola', 'Lata de refresco azucarado (355ml)', 1.80),
+       ('e5f6a7b8-c9d0-1234-5678-9abcdef01234', 'Smoothie de Frutos Rojos', 'Batido helado de fresa, mora y arándanos',
+        4.50),
+       ('f6a7b8c9-d0e1-2345-6789-abcdef012345', 'Cerveza Artesanal', 'Cerveza tipo IPA con notas cítricas', 5.00);
+
+INSERT INTO desserts (id, name, description, price)
+VALUES ('223e4567-e89b-12d3-a456-426614174000', 'Tiramisú',
+        'Postre italiano clásico con capas de bizcocho bañadas en café y crema de mascarpone', 5.50),
+       ('387e6543-e21b-34d5-c678-426614174001', 'Cheesecake de Frambuesa',
+        'Tarta de queso horneada al estilo Nueva York con cobertura de mermelada de frambuesa', 6.00),
+       ('41b2c3d4-e5f6-7890-1234-56789abcdef0', 'Brownie con Helado',
+        'Cuadro de bizcocho de chocolate intenso servido caliente con helado de vainilla', 4.75),
+       ('52c3d4e5-f6a7-8901-2345-6789abcdef01', 'Macarons Surtidos',
+        'Caja de 4 delicadas galletas francesas de almendra con diferentes rellenos', 5.20),
+       ('63d4e5f6-a7b8-9012-3456-789abcdef012', 'Volcán de Chocolate',
+        'Bizcocho esponjoso con interior fundido de chocolate amargo', 6.50),
+       ('74e5f6a7-b8c9-0123-4567-89abcdef0123', 'Tarta de Manzana',
+        'Tarta tradicional con rodajas de manzana, canela y base de masa crujiente', 4.50),
+       ('85f6a7b8-c9d0-1234-5678-9abcdef01234', 'Flan Casero',
+        'Flan tradicional de vainilla horneado al baño maría con caramelo líquido', 3.50),
+       ('96a7b8c9-d0e1-2345-6789-abcdef012345', 'Panna Cotta',
+        'Suave postre italiano a base de crema de leche con coulis de frutos rojos', 4.80);
