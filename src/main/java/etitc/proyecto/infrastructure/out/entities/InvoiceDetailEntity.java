@@ -14,7 +14,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @Entity
 @Table(name = "invoice_detail")
-@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class PersonEntity {
 
     @Id
