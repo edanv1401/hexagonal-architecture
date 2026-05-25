@@ -13,7 +13,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "invoices")
+@Table(name = "invoice")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class PersonEntity {
 
     @Id
@@ -22,16 +23,11 @@ public abstract class PersonEntity {
     @Column
     private Client client;
     @Column
+    private Employee employee;
+    @Column
     private LocalDateTime createdAt;
     @Column
     private Double total;
     @Column
     private List<InvoiceDetail> details;
-
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private CustomerEntity customer;
-
-    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
-    private List<InvoiceDetailEntity> details;
 }
