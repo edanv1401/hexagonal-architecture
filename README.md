@@ -1,6 +1,8 @@
-# Proyecto Spring Boot con Arquitectura Hexagonal
+# Lilo Bakery
 
-Este proyecto es una API REST desarrollada con Java y Spring Boot utilizando el enfoque de **Arquitectura Hexagonal (Ports & Adapters)**.
+Proyecto Spring Boot con Arquitectura Hexagonal
+
+Este proyecto es una API REST desarrollada con Java y Spring Boot utilizando el enfoque de Arquitectura Hexagonal (Ports & Adapters). 
 
 El objetivo principal es mantener una separación clara entre la lógica de negocio, los casos de uso y la infraestructura, permitiendo que la aplicación sea más mantenible, escalable y fácil de probar.
 
@@ -26,27 +28,76 @@ La aplicación está organizada en capas siguiendo el patrón hexagonal:
 ```text
 src/main/java/etitc/proyecto
 │
+├── ProyectoApplication.java
+│
 ├── domain
+│   │
 │   ├── model
+│   │   ├── Customer
+│   │   ├── Invoice
+│   │   └── InvoiceDetail
+│   │
 │   ├── repository
+│   │   ├── ICustomerRepository
+│   │   └── IInvoiceRepository
+│   │
 │   └── exception
+│       ├── CustomerNotFoundException
+│       ├── InvoiceNotFoundException
+│       └── InvalidInvoiceException
 │
 ├── application
+│   │
 │   ├── create
-│   └── find
+│   │   ├── CustomerCreateUseCase
+│   │   └── InvoiceCreateUseCase
+│   │
+│   ├── find
+│   │   ├── CustomerFindUseCase
+│   │   └── InvoiceFindUseCase
+│   │
+│   ├── update
+│   │   ├── CustomerUpdateUseCase
+│   │   └── InvoiceUpdateUseCase
+│   │
+│   └── delete
+│       ├── CustomerDeleteUseCase
+│       └── InvoiceDeleteUseCase
 │
 ├── infrastructure
+│   │
 │   ├── in
-│   │   └── controllers
+│   │   ├── controllers
+│   │   │   ├── CustomerController
+│   │   │   └── InvoiceController
+│   │   │
+│   │   └── dto
+│   │       ├── request
+│   │       └── response
 │   │
 │   └── out
 │       ├── entities
+│       │   ├── CustomerEntity
+│       │   ├── InvoiceEntity
+│       │   └── InvoiceDetailEntity
+│       │
 │       ├── mapper
+│       │   ├── CustomerMapper
+│       │   ├── InvoiceMapper
+│       │   └── InvoiceDetailMapper
+│       │
 │       └── persistence
 │           ├── impl
+│           │   ├── CustomerPersistenceImpl
+│           │   └── InvoicePersistenceImpl
+│           │
 │           └── jpa
+│               ├── CustomerJpaRepository
+│               └── InvoiceJpaRepository
 │
-└── ProyectoApplication.java
+└── shared
+    ├── config
+    └── handler
 ```
 
 ---
@@ -63,6 +114,8 @@ Define las entidades de dominio:
 
 * `Beverages`
 * `Desserts`
+* `Invoices`
+* `InvoiceDetail`
 
 ### repository (Repositorio)
 
@@ -94,6 +147,7 @@ Ejemplo:
 
 * `BeveragesCreateUseCase`
 * `DessertsCreateUseCase`
+* `InvoiceCreateUseCase`
 
 ### find (Buscar)
 
@@ -103,6 +157,7 @@ Ejemplo:
 
 * `BeveragesFindUseCase`
 * `DessertsFindUseCase`
+* `InvoiceFindUseCase`
 
 Esta capa coordina la lógica de negocio utilizando los puertos definidos en `domain/repository`.
 
@@ -225,23 +280,6 @@ Ejemplo:
 ```
 
 ---
-
-# Swagger / OpenAPI
-
-La documentación de la API estará disponible en:
-
-```text
-http://localhost:8080/swagger-ui.html
-```
-
-O:
-
-```text
-http://localhost:8080/swagger-ui/index.html
-```
-
----
-
 # Base de datos H2
 
 La aplicación utiliza una base de datos en memoria H2.
@@ -267,4 +305,5 @@ runtimeOnly 'com.h2database:h2'
 # Autores:
 
 Edwin Villarraga
+
 Lina Arroyo

@@ -36,7 +36,7 @@ public class InvoicesRepository implements IInvoicesRepository {
     }
 
     @Override
-    public void delete(Customers invoices) {
+    public void delete(Invoices invoices) {
         jpaRepository.deleteById(invoices.getId());
     }
 }
