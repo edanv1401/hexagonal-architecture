@@ -28,5 +28,5 @@ public class Invoice {
     private Double price;
     @ManyToOne
     @JoinColumn(name = "invoice_id")
-    private Invoice invoice;
+    private InvoicesEntity invoice;
 }

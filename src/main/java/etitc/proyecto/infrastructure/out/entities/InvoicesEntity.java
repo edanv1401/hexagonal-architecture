@@ -21,14 +21,21 @@ public class InvoicesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    @Column
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
     private CustomersEntity client;
-    @Column
+
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
     private PersonEntity employee;
+
     @Column
     private LocalDateTime createdAt;
+
     @Column
     private Double total;
-    @Column
+
+    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Invoice> details;
 }
