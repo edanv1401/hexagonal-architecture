@@ -1,7 +1,7 @@
 package etitc.proyecto.infrastructure.in.controllers;
 
-import etitc.proyecto.application.create.CustomersCreateUseCase;
-import etitc.proyecto.application.find.CustomersFindUseCase;
+import etitc.proyecto.application.ports.create.CustomersCreatePort;
+import etitc.proyecto.application.ports.find.CustomersFindPort;
 import etitc.proyecto.domain.model.Customers;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -13,21 +13,21 @@ import java.util.UUID;
 @AllArgsConstructor
 @RequestMapping("/customers")
 public class CustomersController {
-    private final CustomersFindUseCase customersFindUseCase;
-    private final CustomersCreateUseCase customersCreateUseCase;
+    private final CustomersFindPort customersFindPort;
+    private final CustomersCreatePort customersCreatePort;
 
     @GetMapping
     public List<Customers> getCustomers() {
-        return customersFindUseCase.findAll();
+        return customersFindPort.findAll();
     }
 
     @GetMapping("/{id}")
     public Customers getCustomers(@PathVariable UUID id) {
-        return customersFindUseCase.findById(id);
+        return customersFindPort.findById(id);
     }
 
     @PostMapping
     public Customers createCustomer(@RequestBody Customers customers) {
-        return customersCreateUseCase.create(customers);
+        return customersCreatePort.create(customers);
     }
 }

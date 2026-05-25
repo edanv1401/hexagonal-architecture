@@ -1,5 +1,6 @@
-package etitc.proyecto.application.find;
+package etitc.proyecto.application.adapters.find;
 
+import etitc.proyecto.application.ports.find.CustomersFindPort;
 import etitc.proyecto.domain.exception.CustomerNotFound;
 import etitc.proyecto.domain.model.Customers;
 import etitc.proyecto.domain.repository.ICustomersRepository;
@@ -11,13 +12,15 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class CustomersFindUseCase {
+public class CustomersFindUseCase implements CustomersFindPort {
     private final ICustomersRepository customersRepository;
 
+    @Override
     public List<Customers> findAll() {
         return customersRepository.findAll();
     }
 
+    @Override
     public Customers findById(UUID id) {
         return customersRepository.findById(id)
                 .orElseThrow(() -> new CustomerNotFound(

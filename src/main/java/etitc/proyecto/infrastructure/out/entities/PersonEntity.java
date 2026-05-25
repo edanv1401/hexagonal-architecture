@@ -13,22 +13,17 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "invoice_detail")
-public abstract class PersonEntity {
-
+@Table(name = "person_entity")
+public class PersonEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     @Column
-    private Long productId;
+    private String firstName;
     @Column
-    private String productType;
+    private String lastName;
     @Column
-    private Integer quantity;
+    private String email;
     @Column
-    private Double price;
-
-    @ManyToOne
-    @JoinColumn(name = "invoice_id")
-    private InvoiceEntity invoice;
+    private String phone;
 }

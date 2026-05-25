@@ -1,7 +1,7 @@
 package etitc.proyecto.infrastructure.in.controllers;
 
-import etitc.proyecto.application.create.BeveragesCreateUseCase;
-import etitc.proyecto.application.find.BeveragesFindUseCase;
+import etitc.proyecto.application.ports.create.BeverageCreatePort;
+import etitc.proyecto.application.ports.find.BeveragesFindPort;
 import etitc.proyecto.domain.model.Beverages;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -13,21 +13,21 @@ import java.util.UUID;
 @AllArgsConstructor
 @RequestMapping("/beverages")
 public class BeveragesController {
-    private final BeveragesFindUseCase beveragesFindUseCase;
-    private final BeveragesCreateUseCase beveragesCreateUseCase;
+    private final BeveragesFindPort beveragesFindPort;
+    private final BeverageCreatePort beverageCreatePort;
 
     @GetMapping
     public List<Beverages> getBeverages() {
-        return beveragesFindUseCase.findAll();
+        return beveragesFindPort.findAll();
     }
 
     @GetMapping("/{id}")
     public Beverages getBeverages(@PathVariable UUID id) {
-        return beveragesFindUseCase.findById(id);
+        return beveragesFindPort.findById(id);
     }
 
     @PostMapping
     public Beverages createBeverage(@RequestBody Beverages beverages) {
-        return beveragesCreateUseCase.create(beverages);
+        return beverageCreatePort.create(beverages);
     }
 }

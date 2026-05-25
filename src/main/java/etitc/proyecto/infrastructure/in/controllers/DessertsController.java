@@ -1,7 +1,7 @@
 package etitc.proyecto.infrastructure.in.controllers;
 
-import etitc.proyecto.application.create.DessertsCreateUseCase;
-import etitc.proyecto.application.find.DessertsFindUseCase;
+import etitc.proyecto.application.ports.create.DessertsCreatePort;
+import etitc.proyecto.application.ports.find.DessertsFindPort;
 import etitc.proyecto.domain.model.Desserts;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -13,21 +13,21 @@ import java.util.UUID;
 @AllArgsConstructor
 @RequestMapping("/desserts")
 public class DessertsController {
-    private final DessertsFindUseCase dessertsFindUseCase;
-    private final DessertsCreateUseCase dessertsCreateUseCase;
+    private final DessertsFindPort dessertsFindPort;
+    private final DessertsCreatePort dessertsCreatePort;
 
     @GetMapping
     public List<Desserts> findAll() {
-        return dessertsFindUseCase.findAll();
+        return dessertsFindPort.findAll();
     }
 
     @GetMapping("/{id}")
     public Desserts findById(@PathVariable UUID id) {
-        return dessertsFindUseCase.findById(id);
+        return dessertsFindPort.findById(id);
     }
 
     @PostMapping
     public Desserts createDessert(@RequestBody Desserts desserts) {
-        return dessertsCreateUseCase.create(desserts);
+        return dessertsCreatePort.create(desserts);
     }
 }

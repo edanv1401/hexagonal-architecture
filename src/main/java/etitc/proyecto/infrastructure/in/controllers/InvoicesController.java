@@ -1,7 +1,7 @@
 package etitc.proyecto.infrastructure.in.controllers;
 
-import etitc.proyecto.application.create.InvoicesCreateUseCase;
-import etitc.proyecto.application.find.InvoicesFindUseCase;
+import etitc.proyecto.application.ports.create.InvoicesCreatePort;
+import etitc.proyecto.application.ports.find.InvoicesFindPort;
 import etitc.proyecto.domain.model.Invoices;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -13,21 +13,21 @@ import java.util.UUID;
 @AllArgsConstructor
 @RequestMapping("/invoices")
 public class InvoicesController {
-    private final InvoicesFindUseCase invoicesFindUseCase;
-    private final InvoicesCreateUseCase invoicesCreateUseCase;
+    private final InvoicesFindPort invoicesFindPort;
+    private final InvoicesCreatePort invoicesCreatePort;
 
     @GetMapping
     public List<Invoices> getInvoices() {
-        return invoicesFindUseCase.findAll();
+        return invoicesFindPort.findAll();
     }
 
     @GetMapping("/{id}")
     public Invoices getInvoices(@PathVariable UUID id) {
-        return invoicesFindUseCase.findById(id);
+        return invoicesFindPort.findById(id);
     }
 
     @PostMapping
     public Invoices createInvoice(@RequestBody Invoices invoices) {
-        return invoicesCreateUseCase.create(invoices);
+        return invoicesCreatePort.create(invoices);
     }
 }

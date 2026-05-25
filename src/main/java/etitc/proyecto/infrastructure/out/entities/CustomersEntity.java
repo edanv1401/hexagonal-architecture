@@ -14,7 +14,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Entity
 @Table(name = "customers")
-public class CustomerEntity {
+public class CustomersEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
@@ -26,5 +26,4 @@ public class CustomerEntity {
     private String email;
     @Column
     private String phone;
-
 }

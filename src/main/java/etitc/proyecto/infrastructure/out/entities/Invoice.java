@@ -6,8 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -15,20 +13,20 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "invoice")
-@Inheritance(strategy = InheritanceType.JOINED)
-public class InvoicesEntity {
+@Table(name = "invoice_detail")
+public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     @Column
-    private CustomersEntity client;
+    private Long productId;
     @Column
-    private PersonEntity employee;
+    private String productType;
     @Column
-    private LocalDateTime createdAt;
+    private Integer quantity;
     @Column
-    private Double total;
-    @Column
-    private List<Invoice> details;
+    private Double price;
+    @ManyToOne
+    @JoinColumn(name = "invoice_id")
+    private Invoice invoice;
 }

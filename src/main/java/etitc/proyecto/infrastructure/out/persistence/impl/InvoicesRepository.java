@@ -1,7 +1,6 @@
 package etitc.proyecto.infrastructure.out.persistence.impl;
 
 import etitc.proyecto.domain.model.Invoices;
-import etitc.proyecto.domain.repository.InvoicesRepository;
 import etitc.proyecto.infrastructure.out.mapper.InvoicesMapper;
 import etitc.proyecto.infrastructure.out.persistence.jpa.InvoicesJpaRepository;
 import lombok.AllArgsConstructor;
@@ -13,7 +12,7 @@ import java.util.UUID;
 
 @Repository
 @AllArgsConstructor
-public class InvoicesRepository implements IInvoicesRepository {
+public class InvoicesRepository implements etitc.proyecto.domain.repository.InvoicesRepository {
 
     private final InvoicesJpaRepository jpaRepository;
     private final InvoicesMapper mapper;

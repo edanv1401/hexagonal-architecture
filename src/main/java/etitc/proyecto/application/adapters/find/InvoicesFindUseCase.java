@@ -1,5 +1,6 @@
-package etitc.proyecto.application.find;
+package etitc.proyecto.application.adapters.find;
 
+import etitc.proyecto.application.ports.find.InvoicesFindPort;
 import etitc.proyecto.domain.exception.InvoiceNotFound;
 import etitc.proyecto.domain.model.Invoices;
 import etitc.proyecto.domain.repository.InvoicesRepository;
@@ -11,13 +12,15 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class InvoicesFindUseCase {
+public class InvoicesFindUseCase implements InvoicesFindPort {
     private final InvoicesRepository invoicesRepository;
 
+    @Override
     public List<Invoices> findAll() {
         return invoicesRepository.findAll();
     }
 
+    @Override
     public Invoices findById(UUID id) {
         return invoicesRepository.findById(id)
                 .orElseThrow(() -> new InvoiceNotFound(
