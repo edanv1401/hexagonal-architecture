@@ -29,4 +29,7 @@ public class Invoice {
     @ManyToOne
     @JoinColumn(name = "invoice_id")
     private InvoicesEntity invoice;
+    @OneToOne
+    @JoinColumn(name = "sucursal_id")
+    private SucursalEntity sucursal;
 }

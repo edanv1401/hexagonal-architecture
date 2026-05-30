@@ -53,3 +53,17 @@ INSERT INTO invoice_detail (id, product_id, product_type, quantity, price, invoi
 
 -- Detalles para la Factura 2 (Total: 10.50)
 ('88888888-8888-8888-8888-888888888881', 202, 'DESSERT', 3, 3.50, '66666666-6666-6666-6666-666666666666'); -- Subtotal: 10.50
+
+-- data.sql
+-- Inserción de 10 sucursales de ejemplo para SucursalEntity
+
+INSERT INTO sucursal_entity (id, name, street) VALUES ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'Lilo Centro', 'Calle 10 # 5-23');
+INSERT INTO sucursal_entity (id, name, street) VALUES ('b1f11c50-1a2b-4c3d-8e9f-7a6b5c4d3e21', 'Lilo Norte', 'Avenida Libertadores 45');
+INSERT INTO sucursal_entity (id, name, street) VALUES ('c2d3e4f5-6a7b-8c9d-0e1f-2a3b4c5d6e7f', 'Lilo Occidente', 'Carrera 68 # 12-45');
+INSERT INTO sucursal_entity (id, name, street) VALUES ('d3e4f5a6-7b8c-9d0e-1f2a-3b4c5d6e7f8a', 'Lilo Sur', 'Diagonal 4A # 18-90');
+INSERT INTO sucursal_entity (id, name, street) VALUES ('e4f5a6b7-8c9d-0e1f-2a3b-4c5d6e7f8a9b', 'Lilo Chapinero', 'Carrera 13 # 55-22');
+INSERT INTO sucursal_entity (id, name, street) VALUES ('f5a6b7c8-9d0e-1f2a-3b4c-5d6e7f8a9b0c', 'Lilo Usaquén', 'Calle 116 # 15-40');
+INSERT INTO sucursal_entity (id, name, street) VALUES ('0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d', 'Lilo Fontibón', 'Carrera 100 # 22-14');
+INSERT INTO sucursal_entity (id, name, street) VALUES ('1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e', 'Lilo Suba', 'Avenida Suba # 118-54');
+INSERT INTO sucursal_entity (id, name, street) VALUES ('2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f', 'Lilo Kennedy', 'Avenida Primero de Mayo # 71-22');
+INSERT INTO sucursal_entity (id, name, street) VALUES ('3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a', 'Lilo Teusaquillo', 'Calle 34 # 19-32');
